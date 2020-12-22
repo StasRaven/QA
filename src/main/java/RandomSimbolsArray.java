@@ -4,7 +4,7 @@ import java.lang.Math;
 
 public class RandomSimbolsArray {
 
-    //comment for commin
+
     public static void main(String[] args) {
 
         int count = 0;
