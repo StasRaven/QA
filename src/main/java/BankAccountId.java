@@ -1,5 +1,9 @@
 public class BankAccountId implements InputData {
 
+    private int balance;
+    private int credit;
+    private int debit;
+
     public static void main(String[] args) {
 
        BankAccount account = new BankAccount("asdf11", 100, 10, 19);
@@ -8,10 +12,11 @@ public class BankAccountId implements InputData {
     }
 
 
-    @Override
+
+/*    @Override
     public int debit(int balance, int debit) {
         return balance - debit;
-    }
+    }*/
 
     @Override
     public int credit(int balance, int credit) {
@@ -19,13 +24,13 @@ public class BankAccountId implements InputData {
     }
 
     @Override
-    public int debitMoreThenBalance(int balance, int credit, int debit) {
-        return balance;
+    public boolean ifDebitMoreThenBalance(int balance, int credit, int debit) {
+        if ((balance + credit) < debit) {  return false;  }
+        else return true;
+
     }
 
-}
-
-class BankAccount {
+static class BankAccount {
 
     private String accountNumber;
     private int balance;
@@ -75,19 +80,25 @@ class BankAccount {
     }
 
 
-
-    public int credit() {
-        return this.getBalance() + this.getCredit();
-    }
-
-    public int credit(int balance, int credit) {
+/*    public int credit(int balance, int credit) {
         return balance + credit;
     }
 
-    public int debitMoreThenBalance(int balance, int credit, int debit) {
+    public int ifDebitMoreThenBalance(int balance, int credit, int debit) {
+
+        if (balance + credit < debit) {
+
+            return balance;
+
+        }
+        else return balance + credit - debit;
+    }*/
+
+ /*   public int balance(int balance) {
         return balance;
-    }
-}
+    }*/
+
+}}
 
    /* Создать класс BankAccount который будет иметь два поля 	accountNumber и balance.
         Реализовать в классе методы setBalance() который будет задавать баланс , credit() метод должен начислять средства на счет, debit() - снимать средтва со  счета.

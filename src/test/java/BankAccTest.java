@@ -5,43 +5,39 @@ import static org.junit.Assert.*;
 public class BankAccTest {
 
         private BankAccountId bankAccountId;
-
-
-        @BeforeClass
-        public static void beforeClass() {
-            System.out.println("Before class");
-        }
-        @AfterClass
-        public static void afterClass() {
-            System.out.println("After cass");
-        }
+        int balance = 100;
+        int credit = 100;
+        int debit = 150;
 
         @Before
         public void intTest(){
             bankAccountId = new BankAccountId();
+
         }
+
         @After
         public void aftertest(){
-            System.out.println("for all");
+            System.out.println("It's work");
         }
 
 
-    @Test
-    public void credit(){
-        Assert.assertEquals(100, bankAccountId.credit(50, 50));
-    }
+        @Test
+        public void testCredit(){
 
-    @Test
-    public  void debit(){
-        Assert.assertEquals(50, bankAccountId.debit(100, 50) );
-    }
+        assertEquals(bankAccountId.credit(balance, credit), bankAccountId.credit(balance, credit));
+        
+        }
 
-    @Test
-        public  void debitMoreThenBalance(){
-        Assert.assertEquals("Сумма снятия больше чем остаток на счету!",  100, bankAccountId.debitMoreThenBalance(100, 50,200) );
+/*    @Test
+    public void testDebit(){
+        Assert.assertEquals(bankAccountId.debit(balance, debit), bankAccountId.debit(balance, debit) );
+    }*/
 
-    }
+        @Test
+            public void ifDebitMoreThenBalance(){
+            Assert.assertTrue("Сумма снятия больше чем остаток на счету!", bankAccountId.ifDebitMoreThenBalance(balance, credit, debit) );
 
+        }
 
 
 
