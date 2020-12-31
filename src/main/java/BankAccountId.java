@@ -6,8 +6,8 @@ public class BankAccountId implements InputData {
 
     public static void main(String[] args) {
 
-       BankAccount account = new BankAccount("asdf11", 100, 10, 19);
-        System.out.println("The balance = " + account.getDebit());
+       BankAccount account = new BankAccount("asdf11", 100, 10, 20);
+        //System.out.println("The balance = " + account.getDebit());
 
     }
 
@@ -41,13 +41,22 @@ static class BankAccount {
             this.accountNumber = accountNumber;
             this.balance = balance;
             this.credit = credit;
-        if(debit > balance+credit){
-            System.out.println("Сумма снятия больше чем остаок на счету!");
-        }
-        else
             this.debit = debit;
+            if(ifDebitMoreThenBalance()){
+                System.out.println("Сумма снятия больше чем остаток на счету!");
+            }
+            else {
+                balance = (balance+credit) - debit;
+                System.out.println("Остаток баланса "+getDebit());}
+            }
 
-    }
+            public boolean ifDebitMoreThenBalance() {
+                if ((balance + credit) < debit) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
 
 
     public void setAccountNumber(String accountNumber) {
