@@ -1,5 +1,5 @@
 public class Phone {
-    //comment for commin
+
     private String price;
     private String producer;
 
